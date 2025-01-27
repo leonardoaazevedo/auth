@@ -2,19 +2,21 @@ package auth.controller;
 
 import auth.configuration.AppConfiguration;
 import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
 import lombok.RequiredArgsConstructor;
+import micronaut.example.api.UsersApi;
+import micronaut.example.model.LoginRequest;
+import micronaut.example.model.User;
 
 
-@Controller("/test")
+@Controller
 @RequiredArgsConstructor
-public class TestController {
+public class TestController implements UsersApi {
 
     private final AppConfiguration appConfiguration;
 
-    @Get("/get-config")
-    public String test() {
-        String uri = appConfiguration.getDataBaseUri();
-        return "Database URI: " + uri;
+    public User login(String userQuery, LoginRequest loginRequest) {
+        User user = new User();
+        user.setName(appConfiguration.getDataBaseUri());
+        return user;
     }
 }

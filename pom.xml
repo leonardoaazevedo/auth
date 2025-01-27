@@ -24,6 +24,12 @@
     <exec.mainClass>auth.Application</exec.mainClass>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
+    <micronaut.openapi.generate.server>true</micronaut.openapi.generate.server>
+    <micronaut.openapi.definition>src/main/resources/swagger.yml</micronaut.openapi.definition>
+    <micronaut.openapi.api.package.name>micronaut.example.api</micronaut.openapi.api.package.name>
+    <micronaut.openapi.model.package.name>micronaut.example.model</micronaut.openapi.model.package.name>
+    <micronaut.openapi.invoker.package.name>micronaut.example</micronaut.openapi.invoker.package.name>
+    <micronaut.openapi.use.reactive>false</micronaut.openapi.use.reactive>
   </properties>
 
   <repositories>
@@ -91,9 +97,14 @@
       <version>2.2.27</version>
     </dependency>
     <dependency>
+      <groupId>io.micronaut</groupId>
+      <artifactId>micronaut-runtime</artifactId>
+      <version>${micronaut.version}</version>
+    </dependency>
+    <dependency>
       <groupId>io.micronaut.openapi</groupId>
       <artifactId>micronaut-openapi</artifactId>
-      <version>4.10.0</version>
+      <version>6.13.2</version>
     </dependency>
     <dependency>
       <groupId>javax.annotation</groupId>
@@ -169,23 +180,23 @@
   <build>
     <testSourceDirectory>${project.build.directory}/generated-sources/src/test/java</testSourceDirectory>
     <plugins>
-      <plugin>
-        <groupId>io.swagger.codegen.v3</groupId>
-        <artifactId>swagger-codegen-maven-plugin</artifactId>
-        <version>3.0.66</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <configuration>
-              <inputSpec>${project.basedir}/src/main/resources/swagger.yml</inputSpec>
-              <language>java</language>
-              <output>${project.basedir}/target/generated-sources/swagger</output>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>io.swagger.codegen.v3</groupId>-->
+<!--        <artifactId>swagger-codegen-maven-plugin</artifactId>-->
+<!--        <version>3.0.66</version>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <goals>-->
+<!--              <goal>generate</goal>-->
+<!--            </goals>-->
+<!--            <configuration>-->
+<!--              <inputSpec>${project.basedir}/src/main/resources/swagger.yml</inputSpec>-->
+<!--              <language>java</language>-->
+<!--              <output>${project.basedir}/target/generated-sources/swagger</output>-->
+<!--            </configuration>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
       <plugin>
         <groupId>io.micronaut.build</groupId>
         <artifactId>micronaut-maven-plugin</artifactId>
