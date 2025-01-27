@@ -1,0 +1,27 @@
+openapi: 3.0.1
+info:
+  title: Auth API
+  description: API for authentication services
+  version: 1.0.0
+
+paths:
+  /test:
+    post:
+      summary: User login
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Login successful
+        '401':
+          description: Unauthorized
