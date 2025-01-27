@@ -1,0 +1,5 @@
+micronaut:
+  environment: local
+
+server:
+  uri: http://localhost:8080/test.com

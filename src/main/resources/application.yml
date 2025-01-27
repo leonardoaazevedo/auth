@@ -1,0 +1,15 @@
+micronaut:
+  security:
+    enabled: true
+    token:
+      jwt:
+        signatures:
+          secret:
+            generator:
+              secret: 'super-secret-key' # Substitua por uma chave segura
+  openapi:
+    enabled: true
+    generator:
+      output: src/main/resources/swagger.yml
+    test:
+      enabled: false

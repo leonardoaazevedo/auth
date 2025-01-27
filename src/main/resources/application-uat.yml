@@ -1,0 +1,5 @@
+micronaut:
+  environment: uat
+
+server:
+  uri: http://localhost:8080/test.com/uat
