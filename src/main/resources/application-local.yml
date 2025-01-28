@@ -1,5 +1,16 @@
 micronaut:
   environment: local
 
+dynamodb:
+  region: us-west-1
+  table-name:
+    users: USERS-UAT
+
+aws:
+  region: us-west-1
+  dynamodb:
+    table-name:
+      users: UAT-USERS
+
 server:
   uri: http://localhost:8080/test.com

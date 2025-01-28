@@ -10,10 +10,12 @@ import lombok.Getter;
 @Singleton
 public class AppConfiguration {
 
-    private final String dataBaseUri;
+    private final String awsRegion;
+    private final String userDynamoDbTableName;
 
     @Inject
     public AppConfiguration(Config config) {
-        dataBaseUri = config.getValue(ConfigConstants.DATABASE_URI);
+        awsRegion = config.getValue(ConfigConstants.AWS_REGION);
+        userDynamoDbTableName = config.getValue(ConfigConstants.USERS_TABLE_NAME);
     }
 }

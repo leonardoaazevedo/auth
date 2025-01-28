@@ -7,24 +7,18 @@ info:
 servers:
   - url: http://localhost:8080
 tags:
-  - name: users
-    description: Operations about user
+  - name: Users
+    description: Users CRUD
 
 paths:
-  /test:
+  /user:
     post:
-      summary: User login
+      summary: Create user
       tags:
-        - users
-      operationId: login
-      parameters:
-        - name: user
-          in: query
-          schema:
-            type: string
-            minLength: 3
+        - Users
+      operationId: createUser
       requestBody:
-        required: false
+        required: true
         content:
           application/json:
             schema:
@@ -37,15 +31,13 @@ paths:
       responses:
         "200":
           description: Success
-          content:
-            "application/json":
-              schema:
-                  $ref: "#/components/schemas/User"
 
 components:
   schemas:
     User:
       type: object
       properties:
-        name:
+        username:
+          type: string
+        password:
           type: string
