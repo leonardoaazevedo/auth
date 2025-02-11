@@ -11,6 +11,7 @@ aws:
   dynamodb:
     table-name:
       users: UAT-USERS
+    endpoint: http://localhost:8080/endpoint
 
 server:
   uri: http://localhost:8080/test.com
